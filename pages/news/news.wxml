@@ -1,0 +1,23 @@
+<!-- news xml -->
+<view class="news-list">
+    <!--头图-->
+    <!--<swiper class="header" indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{imgUrls}}">
+            <swiper-item>
+                <image src="{{item}}" class="slide-image" mode="aspectFill" style="width:100%; height:200px"/>
+            </swiper-item>
+        </block>
+    </swiper>-->
+    
+    <!--列表-->
+    <view class="list-item" wx:for="{{items}}">
+            <view class="flex-wrp">
+                <view class="news-item-left">
+                    <image src="{{item.imgsrc}}" mode="scaleToFill" class="image_single"/>
+                </view>
+                <view class="news-item-right">
+                    <text class="item-title">{{item.ltitle}}</text>
+                </view>
+        </view>
+<view/>
