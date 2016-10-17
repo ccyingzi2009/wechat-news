@@ -12,12 +12,18 @@
     
     <!--列表-->
     <view class="list-item" wx:for="{{items}}">
-            <view class="flex-wrp">
+            <block wx:if="{{item.imgType==1}}" >
+                <view class="flex-colm">
+                    <text>{{item.title}}</text>
+                    <image src="{{item.imgsrc}}" mode="aspectFill" class="image_single"/>
+                </view>
+            </block>
+            <view wx:else class="flex-wrp">
                 <view class="news-item-left">
-                    <image src="{{item.imgsrc}}" mode="scaleToFill" class="image_single"/>
+                    <image src="{{item.imgsrc}}" mode="scaleToFill" class="news-item-left"/>
                 </view>
                 <view class="news-item-right">
                     <text class="item-title">{{item.ltitle}}</text>
-                </view>
-        </view>
+            </view>
+    </view>
 <view/>
