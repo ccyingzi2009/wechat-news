@@ -1,17 +1,22 @@
 <!-- news xml -->
-<view class="news-list">
-    <!--头图-->
-    <!--<swiper class="header" indicator-dots="{{indicatorDots}}"
-        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-        <block wx:for="{{imgUrls}}">
-            <swiper-item>
-                <image src="{{item}}" class="slide-image" mode="aspectFill" style="width:100%; height:200px"/>
-            </swiper-item>
-        </block>
-    </swiper>-->
-    
+<scroll-view  class="news-list">
     <!--列表-->
+    <!--数组的当前项的下标变量名默认为index，数组当前项的变量名默认为item-->
     <view class="list-item" wx:for="{{items}}">
+        <!--头部-->
+        <view wx:if="{{index==0}}" wx:else class="flex-colm">
+            <view class="header-indicator">
+                <swiper indicator-dots="{{indicatorDots}}"
+                    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+                        <swiper-item>
+                            <image src="{{item.imgsrc}}" mode="aspectFill" class="image_slider"/>
+                        </swiper-item>
+                </swiper>
+                <text class="header-title">{{item.ltitle}}</text>
+             </view>
+         </view>    
+
+        <block wx:else>
             <block wx:if="{{item.imgType==1}}" >
                 <view class="flex-colm">
                     <text>{{item.title}}</text>
@@ -24,6 +29,8 @@
                 </view>
                 <view class="news-item-right">
                     <text class="item-title">{{item.ltitle}}</text>
+                </view>
             </view>
+        </block>
     </view>
-<view/>
+</scroll-view>
